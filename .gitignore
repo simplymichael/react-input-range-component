@@ -1,0 +1,6 @@
+*.log
+build
+coverage
+docs
+lib
+node_modules
