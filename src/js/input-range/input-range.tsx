@@ -90,9 +90,6 @@ export default function InputRange(props: IInputRange) {
    * @return {ClientRect}
    */
   function getTrackClientRect() {
-    console.log("TRACK NODE IS: ", trackNode)
-    console.log("Node is: ", node);
-    //return trackNode.current.getClientRect();
     return trackNode.current.getBoundingClientRect();
   }
 
