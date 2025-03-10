@@ -1,11 +1,12 @@
 {
-  "name": "react-input-range-new",
+  "name": "react-input-range-component",
   "version": "1.0.0",
-  "source": "/src/index.js",
+  "source": "/src/js/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
     "build": "parcel build",
+    "example": "parcel ./example/index.html"
   },
   "keywords": [],
   "author": "simplymichael <simplymichaelorji@gmail.com> (https://github.com/simplymichael)",
@@ -13,10 +14,16 @@
   "description": "",
   "devDependencies": {
     "@eslint/js": "9.22.0",
+    "@parcel/transformer-sass": "2.13.3",
     "@types/react": "19.0.10",
     "eslint": "9.22.0",
     "parcel": "2.13.3",
+    "process": "0.11.10",
     "typescript": "5.8.2",
     "typescript-eslint": "8.26.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

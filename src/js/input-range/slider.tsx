@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Label from "./label";
 import type { FormatLabelFn } from "./label";
 import type { IClassNames } from "./default-class-names";
@@ -22,7 +22,7 @@ interface ISlider {
  * @return {JSX.Element}
  */
 export default function Slider(props: ISlider) {
-  const node = useRef(null);
+  const node = useRef<HTMLSpanElement | null>(null);
   const {
     ariaLabelledby,
     ariaControls,
@@ -188,14 +188,14 @@ export default function Slider(props: ISlider) {
    * @param {SyntheticEvent} event
    * @return {void}
    */
-  handleKeyDown(event) {
+  function handleKeyDown(event) {
     onSliderKeyDown(event, type);
   }
 
   return (
     <span
       className={classNames.sliderContainer}
-      ref={(thisSpan) => { node.current = thisSpan; }}
+      ref={node}
       style={getStyle()}>
 
       <Label classNames={classNames} formatLabel={formatLabel} type="value">

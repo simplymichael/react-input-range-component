@@ -12,7 +12,7 @@ interface IPoint {
   y: number
 }
 
-interface: IRange {
+interface IRange {
   min: number,
   max: number
 }

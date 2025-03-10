@@ -42,8 +42,8 @@ export default function InputRange(props: IInputRange) {
   let startValue: number = null;
   let isSliderDragging: boolean = false;
   let lastKeyMoved: string = null;
-  const node = useRef<ReactElement>(null);
-  const trackNode = useRef<ReactElement>(null);
+  const node = useRef<HTMLDivElement | null>(null);
+  const trackNode = useRef<HTMLDivElement | null>(null);
 
   const {
     allowSameValues = false,
@@ -52,6 +52,7 @@ export default function InputRange(props: IInputRange) {
     maxValue = 10,
     minValue = 0,
     step = 1,
+    draggableTrack = true,
     ariaLabelledby,
     ariaControls,
     formatLabel,
@@ -61,6 +62,7 @@ export default function InputRange(props: IInputRange) {
     onChangeStart,
     value,
   } = props;
+
 
   useEffect(() => {
     return function cleanup() {
@@ -88,7 +90,10 @@ export default function InputRange(props: IInputRange) {
    * @return {ClientRect}
    */
   function getTrackClientRect() {
-    return trackNode.current.getClientRect();
+    console.log("TRACK NODE IS: ", trackNode)
+    console.log("Node is: ", node);
+    //return trackNode.current.getClientRect();
+    return trackNode.current.getBoundingClientRect();
   }
 
   /**
@@ -598,7 +603,7 @@ export default function InputRange(props: IInputRange) {
    return (
      <div
        aria-disabled={disabled}
-       ref={(thisDiv) => { node.current = thisDiv; }}
+       ref={node}
        className={getComponentClassName()}
        onKeyDown={handleKeyDown}
        onKeyUp={handleKeyUp}
@@ -612,7 +617,7 @@ export default function InputRange(props: IInputRange) {
        <Track
          classNames={classNames}
          draggableTrack={draggableTrack}
-         ref={(thisTrackNode) => { trackNode.current = thisTrackNode; }}
+         ref={el => trackNode.current = el}
          onTrackDrag={handleTrackDrag}
          onTrackMouseDown={handleTrackMouseDown}
          percentages={
