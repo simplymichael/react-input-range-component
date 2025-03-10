@@ -1,14 +1,16 @@
+@use "input-range-variables" as inputRangeVars;
+
 .input-range__label {
-  color: $input-range-label-color;
-  font-family: $input-range-font-family;
-  font-size: $input-range-label-font-size;
+  color: inputRangeVars.$input-range-label-color;
+  font-family: inputRangeVars.$input-range-font-family;
+  font-size: inputRangeVars.$input-range-label-font-size;
   transform: translateZ(0);
   white-space: nowrap;
 }
 
 .input-range__label--min,
 .input-range__label--max {
-  bottom: $input-range-label-position-bottom;
+  bottom: inputRangeVars.$input-range-label-position-bottom;
   position: absolute;
 }
 
@@ -22,5 +24,5 @@
 
 .input-range__label--value {
   position: absolute;
-  top: $input-range-label-value-position-top;
+  top: inputRangeVars.$input-range-label-value-position-top;
 }

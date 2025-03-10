@@ -1,11 +1,11 @@
-@import "input-range-variables";
-@import "input-range-slider";
-@import "input-range-label";
-@import "input-range-label-container";
-@import "input-range-track";
+@use "input-range-variables" as inputRangeVars;
+@use "input-range-slider";
+@use "input-range-label";
+@use "input-range-label-container";
+@use "input-range-track";
 
 .input-range {
-  height: $input-range-slider-height;
+  height: inputRangeVars.$input-range-slider-height;
   position: relative;
   width: 100%;
 }
